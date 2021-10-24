@@ -11,10 +11,12 @@ git clone https://github.com/sammedsagare/Discord-Chatbot
 Get your Discord Bot Token from the [Discord Developer Portal](https://discord.com/developers/applications)
 
 3. **Environment Variables**
+
 Rename your `.env.example` to `.env` and replace it with your token and channel ID.
 
 
 4. **(Fun part!) Running the bot**
+
 Go to your terminal and type:
 
 ```cmd
