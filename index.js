@@ -2,13 +2,16 @@ const { Client } = require("discord.js");
 const client = new Client({ intents: 513 });
 const smartestchatbot = require("smartestchatbot");
 const x = new smartestchatbot.Client();
+require('dotenv').config();
+
 client.on("ready", () => {
     console.log("Ready for chatting!");
 });
-client.on("message", async message => {
+
+client.on("messageCreate", async message => {
     // when client detects a message
     if (message.author.bot) return; // if the author of the message is a bot ignore the case
-    if (message.channel.id !== 'YOUR-CHANNEL-ID') return;
+    if (message.channel.id !== process.env.channelId) return;
     message.content = message.content
         .replace(/@(everyone)/gi, "everyone")
         .replace(/@(here)/gi, "here");
@@ -30,4 +33,5 @@ client.on("message", async message => {
     });
     message.channel.stopTyping();
 });
-client.login("YOUR-TOKEN-HERE");
+
+client.login(process.env.token);
